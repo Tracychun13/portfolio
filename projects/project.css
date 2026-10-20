@@ -1,0 +1,185 @@
+/* Shared styles for every project page in this folder.
+   Loaded after ../styles.css on each project-*.html page. */
+
+/* ===== Case-study pages ===== */
+.cs-hero {
+  padding-top: 40px;
+  padding-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.back-link {
+  align-self: flex-start;
+  font-family: var(--font-section);
+  font-size: 16px;
+  text-decoration: none;
+  padding: 10px 16px;
+  margin-left: -16px;
+  border-radius: 999px;
+}
+.back-link:hover { background: var(--sage-light); color: var(--ink); }
+.cs-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.cs-meta {
+  margin: 8px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid #E8D5AE;
+  border-bottom: 1px solid #E8D5AE;
+}
+.cs-meta dt {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brown-soft);
+  margin-bottom: 4px;
+}
+.cs-meta dd { margin: 0; font-size: 18px; }
+
+.cs-cover {
+  margin: 0 auto 104px;
+}
+.cs-cover .shot { aspect-ratio: 16 / 9; border-radius: var(--radius); }
+
+.shot {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 16px;
+  background: var(--sage);
+}
+img.shot { cursor: zoom-in; }
+
+.cs-section {
+  padding-bottom: 104px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 56px;
+}
+.cs-section h2,
+.cs-process h2 {
+  font-family: var(--font-section);
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+.cs-section h2 { flex: 1 1 260px; }
+.cs-section .cs-text {
+  flex: 999 1 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.cs-text ul { list-style: disc; padding-left: 24px; display: flex; flex-direction: column; gap: 8px; }
+
+.cs-process {
+  background: var(--sage-light);
+  padding: 104px 0;
+  margin-bottom: 104px;
+}
+.cs-process .container { display: flex; flex-direction: column; gap: 64px; }
+.process-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
+}
+.step {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 32px 56px;
+}
+.step:nth-child(even) { flex-direction: row-reverse; }
+.step figure {
+  flex: 999 1 520px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.step figcaption { font-size: 16px; font-style: italic; color: var(--olive); }
+.step-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 16px;
+}
+.step-text {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.step-num {
+  font-family: var(--font-section);
+  font-size: 16px;
+  color: var(--brown);
+}
+.step-text h3 {
+  font-family: var(--font-section);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.step-text p { font-size: 19px; line-height: 1.7; color: var(--ink-soft); }
+
+.cs-next {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 104px;
+}
+.cs-next a {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 28px 32px;
+  background: var(--peach);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+.cs-next a:hover { transform: translateY(-3px); color: var(--ink); }
+.cs-next .next { text-align: right; }
+.cs-next span { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brown-soft); }
+.cs-next strong { font-family: var(--font-section); font-weight: 400; font-size: 28px; }
+
+/* ===== Screenshot lightbox ===== */
+.lightbox {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  max-width: min(1200px, 94vw);
+  max-height: 92vh;
+}
+.lightbox::backdrop { background: rgba(46, 51, 32, 0.85); }
+.lightbox img { max-width: 100%; max-height: 82vh; border-radius: 12px; display: block; margin: 0 auto; }
+.lightbox p { color: var(--cream); text-align: center; font-style: italic; margin-top: 12px; }
+.lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 24px;
+  cursor: pointer;
+}

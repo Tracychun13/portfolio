@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Twilight Tower — Tracy Chun</title>
+  <meta name="description" content="Case study: Twilight Tower by Tracy Chun.">
+  <link rel="preload" href="../fonts/knewave.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../fonts/sorts-mill-goudy.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../fonts/sniglet.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="project.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">
+        <span class="logo-dot" aria-hidden="true"></span>
+        TRACY CHUN
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <a href="../index.html#work" aria-current="page">projects</a>
+        <a href="../index.html#about">about</a>
+        <a href="../TracyChun-Resume.pdf" target="_blank" rel="noopener">resume</a>
+        <a href="../index.html#contact" class="nav-cta">contact me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ INTRO ============ -->
+    <section class="cs-hero container">
+      <a href="../index.html#work" class="back-link">← All projects</a>
+      <h1>Twilight Tower</h1>
+      <p class="lead">Twilight Tower is a 2D platformer built in Godot that has one rule: you can only attack while
+        standing in the light.
+        Players climb a tower surrounded by darkness and have to read the environment, plan their route, and decide the
+        right time to fight. This was built for 1-bit Game Jam on itch.io.
+      </p>
+
+      <dl class="cs-meta">
+        <div>
+          <dt>My role</dt>
+          <dd>Game Developer & 2D Artist</dd>
+        </div>
+        <div>
+          <dt>Timeline</dt>
+          <dd>6 weeks, 2024</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>Godot, Aseprite, GDScript</dd>
+        </div>
+        <div>
+          <dt>Team</dt>
+          <dd>2 People</dd>
+        </div>
+      </dl>
+
+      <div class="btn-row">
+        <a href="https://matokii.itch.io/twilight-tower" class="btn btn-primary" target="_blank" rel="noopener">Live demo ↗</a>
+        <!-- <a href="https://github.com/yourusername/project-two" class="btn btn-outline" target="_blank"
+          rel="noopener">View code ↗</a> -->
+      </div>
+    </section>
+
+    <figure class="cs-cover container">
+      <img class="shot" src="../images/project-two/TwilightTowerStartScreen.jpg" alt="Twilight Tower cover">
+    </figure>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="cs-section container">
+      <h2>The problem</h2>
+      <div class="cs-text">
+        <p>We wanted a combat system that made players think, not just react. In most platformers you can attack
+          anywhere, so the levels are mainly obstacles. We asked: what if the level itself decided when you could fight?
+        </p>
+
+        <p>The main challenge was that it was me and my partner's first time using Godot and their scripting language.
+          It was also the first time I created art assets in pixel art. We were also constrained by time because we were
+          both swamped with school work.
+        </p>
+      </div>
+    </section>
+
+    <section class="cs-process">
+      <div class="container">
+        <div>
+          <h2>The process</h2>
+        </div>
+
+        <ol class="process-steps">
+          <li class="step">
+            <figure>
+              <div class="shot placeholder peach">[Screenshot: research / planning]</div>
+              <figcaption>[Caption: what this screenshot shows.]</figcaption>
+            </figure>
+            <div class="step-text">
+              <span class="step-num">Step 01</span>
+              <h3>Planning</h3>
+              <p>When planning, our biggest challenge was making each level feel different. With one core rule (you can
+                only attack in light), we worried the levels would start to feel repetitive, and we struggled to decide
+                what else players should run into along the way.
+              </p>
+
+              <p>To solve this, we focused on giving each enemy its own behavior so players would need a different
+                strategy for each one. Bats pressure players to keep moving, ghosts add risk by sending players back to
+                earlier levels, and spiders interrupt the player's flow with webs. Mixing these enemies with different
+                light placements let us create new challenges in every level without adding new rules.
+              </p>
+
+              <p>Since there were only two of us, we also had to plan carefully around our time. I focused on player
+                animations and environment assets first while my partner started programming moving and attack enemies.
+                Once I finished my task, I helped with the state machines and attaching the art to the game.
+              </p>
+            </div>
+          </li>
+
+          <li class="step">
+            <figure>
+              <img class="shot" src="../images/project-two/TwilightTowerLevel.jpg" alt="Twilight Tower Level">
+              <figcaption>[Inside a level of the tower.]</figcaption>
+            </figure>
+            <div class="step-text">
+              <h3>Designing levels around light</h3>
+              <p>Because light controls combat, every level became a puzzle about where light is placed. I used light to
+                guide players along the path, create safe zones to catch their breath, and set up encounters where
+                players have to lure enemies into the light before they can fight back.</p>
+
+              <p>There are three types of enemies: bats, ghosts and spiders. Bats chase and attack players once they
+                come within range. Ghosts chase players down and capture them, dragging them into black holes that
+                teleport them back to a random earlier level. Spiders shoot web projectiles that trap players until they
+                mash the spacebar to break free.
+              </p>
+
+              <p>
+                Figuring out how to invert the colors of the sprites when they stepped into the light also stumped us
+                for quite some time. Instead of creating inverted versions of every sprite, we solved it with a custom
+                shader on each light. The shader reads the part of the screen behind the light and flips every color, so
+                any character, enemy or background that enters the light is inverted automatically. Each light also uses
+                a collision area that tells the player when they can attack, which ties the visual effect directly to
+                the core mechanic.
+              </p>
+            </div>
+          </li>
+
+          <li class="step">
+            <figure>
+              <img class="shot" src="../images/project-two/TwilightTowerLastLevel.jpg" alt="Twilight Tower Last Level">
+              <figcaption>[The last level of the Twilight Tower.]</figcaption>
+            </figure>
+            <div class="step-text">
+              <h3>Final Steps</h3>
+              <p>We didn't have much time to playtest and refine the game before the deadline. However, we still built
+                everything we set out to create at the start.
+              </p>
+
+              <p>All of the audio and sound effects were made with our own voices, which we recorded and then edited in
+                GarageBand by adjusting the pitch and other effects.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ RESULT ============ -->
+    <section class="cs-section container">
+      <h2>The result</h2>
+      <div class="cs-text">
+        <p>We were our own toughest critics, but we also had a lot of fun playing our own game. Looking back, we were
+          amazed by how much we accomplished in such a short time. We knew it wasn't the best game in the world, and we
+          half expected to be the only ones who enjoyed it. To our surprise, we got several comments from players saying
+          they had fun too!
+        </p>
+
+        <p>We created a 2D platformer game with 8 floors, 3 different types of enemies, animations, music and sfx in
+          less than 6 weeks with a new scripting language and a new engine.
+        </p>
+      </div>
+    </section>
+
+    <section class="cs-section container">
+      <h2>What I learned</h2>
+      <div class="cs-text">
+        <p>This project was so much fun because I got to make it with one of my closest friends. He had never made a
+          game before, but working with someone you have great chemistry with makes everything a lot easier. We had a
+          blast brainstorming ideas, experimenting with audio, and simply creating something together. It taught me to
+          be less hard on myself and to just dive in. On future projects, I want to leave more time for polish and add
+          more "juice" to bring the game even more to life.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PREV / NEXT ============ -->
+    <nav class="cs-next container" aria-label="More projects">
+      <a href="project-one.html" class="prev"><span>← Previous</span><strong>[Project One]</strong></a>
+      <a href="project-three.html" class="next"><span>Next →</span><strong>[Project Three]</strong></a>
+    </nav>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <h2>Feel free to reach out!</h2>
+        <a href="mailto:tracychun13@gmail.com" class="btn btn-cream">tracychun13@gmail.com</a>
+      </div>
+      <div class="footer-bottom">
+        <nav aria-label="Social">
+          <a href="https://www.linkedin.com/in/tracy-chun" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="../TracyChun-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        </nav>
+        <span>© <span id="year">2026</span> Tracy Chun</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script src="project.js"></script>
+</body>
+
+</html>
