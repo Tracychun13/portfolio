@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracy Chun Portfolio</title>
+  <meta name="description" content="Tracy Chun's portfolio.">
+
+  <link rel="preload" href="fonts/knewave.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/sorts-mill-goudy.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/sniglet.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/images/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top">
+        <img src="/images/favicon.svg" alt="" class="logo-icon" width="32" height="32">
+        TRACY CHUN
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <a href="#work">projects</a>
+        <a href="#about">about</a>
+        <a href="TracyChun-Resume.pdf" target="_blank" rel="noopener">resume</a>
+        <a href="#contact" class="nav-cta">contact me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section id="top" class="hero container">
+      <div class="hero-text">
+        <span class="pill">Brooklyn, NY</span>
+        <h1>Hey, I'm Tracy</h1>
+        <p class="lead">Part game designer, part problem-solver, full-time people person.
+          I love building things and helping others fall in love with them too.</p>
+        <div class="btn-row">
+          <a href="#work" class="btn btn-primary">See my work</a>
+          <a href="TracyChun-Resume.pdf" class="btn btn-outline" download>Download Resume</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <div class="photo-back" aria-hidden="true"></div>
+          <img class="photo" src="images/pfp.jpg" alt="Photo of me">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section id="work" class="work">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Projects</h2>
+          </div>
+          <!-- <a href="" target="_blank" rel="noopener" class="text-link"> Github →</a> -->
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <img class="project-img" src="images/project-one/RoboCageCover.png" alt="Screenshot of RoboCage">
+            <div class="project-body">
+              <h3><a class="card-link" href="projects/project-one.html">Digital Deathmatch / RoboCage</a></h3>
+              <ul class="tags">
+                <li>Unity</li>
+                <li>C#</li>
+                <li>Maya</li>
+              </ul>
+              <div class="project-links">
+                <!-- <a href="https://example.com" target="_blank" rel="noopener">Live demo ↗</a>
+                <a href="https://github.com/yourusername/project-two" target="_blank" rel="noopener">Code ↗</a> -->
+              </div>
+              <span class="card-cue" aria-hidden="true">See the process →</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img class="project-img" src="images/project-two/TwilightTowerStartScreen.jpg"
+              alt="Screenshot of TwilightTower">
+
+            <div class="project-body">
+              <h3><a class="card-link" href="projects/project-two.html">Twilight Tower</a></h3>
+              <ul class="tags">
+                <li>Godot</li>
+                <li>GDScript</li>
+                <li>Aseprite</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://matokii.itch.io/twilight-tower" target="_blank" rel="noopener">Live demo ↗</a>
+                <a href="https://github.com/Tracychun13/twilight-tower" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+              <span class="card-cue" aria-hidden="true">See the process →</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img class="project-img" src="images/project-three/NewtonCradleCover.png"
+              alt="Screenshot of NewtonCradleCover">
+
+            <div class="project-body">
+              <h3><a class="card-link" href="projects/project-three.html">Newton's Cradle Simulation</a></h3>
+              <ul class="tags">
+                <li>openFrameworks</li>
+                <li>C++</li>
+                <li>Visual Studios</li>
+              </ul>
+              <div class="project-links">
+                <a href="projects/project-three.html#demo" target="_blank" rel="noopener">Live demo ↗</a>
+                <a href="https://github.com/yourusername/project-three" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+              <span class="card-cue" aria-hidden="true">See the process →</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="about container">
+      <div class="about-text">
+        <span class="eyebrow eyebrow-brown">About me</span>
+        <h2>Now loading: The lore of Tracy...</h2>
+        <p>
+          Hi there! My name is Tracy, in case you couldn't guess from how many times it's plastered across this page
+          (haha). Like a lot of people, I grew up playing video games. Some of my fondest memories are staying up late
+          on summer nights in middle school, watching my dad play Resident Evil 4 and The Last of Us. I remember being
+          amazed that you could step inside a story and actually play it.
+        </p>
+
+        <p>
+          Not long after, I discovered I could download games on the family PC, so you bet I hogged that computer every
+          chance I got. But my love for games didn't stop at playing them. Whenever I start a new game, my favorite
+          thing to do is explore the world someone built. Studying Game Design and Development at RIT only made my
+          appreciation for game developers grow. Seeing the detail they put into every corner for players, and hearing
+          designers light up when they talk about their work, genuinely warms my heart.
+        </p>
+
+        <p>
+          That's when I realized I want to be that passionate about everything I do. Maybe that's impossible, but I'd
+          love for my excitement about the things I care about to rub off on the people around me.
+        </p>
+
+        <p>
+          Games aside, I do have other hobbies, I swear! I've played badminton since middle school and still play every
+          week. It's my favorite way to de-stress. Lately I've been rock climbing a lot, and beyond exercise, I'm a
+          self-confessed hobby addict: painting, felting, scrapbooking, you name it.
+        </p>
+
+        <p>
+          Thanks for stopping by and reading a bit about me. Feel free to look around, and if anything here sparks
+          your curiosity, I'd love to chat!
+        </p>
+      </div>
+
+      <aside class="about-card">
+        <div>
+          <h3>Skills</h3>
+          <ul class="tags tags-cream">
+            <li>C#</li>
+            <li>C++</li>
+            <li>Maya</li>
+            <li>Blender</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Experience</h3>
+          <dl class="timeline">
+
+            <div>
+              <dt>B.S. in Game Design & Development, RIT</dt>
+              <dd>2026</dd>
+            </div>
+          </dl>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- ============ CONTACT ============ -->
+  <footer id="contact" class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <h2>Feel free to reach out!</h2>
+        <a href="mailto:tracychun13@gmail.com" class="btn btn-cream">tracychun13@gmail.com</a>
+      </div>
+      <div class="footer-bottom">
+        <nav aria-label="Social">
+          <a href="https://www.linkedin.com/in/tracy-chun" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="TracyChun-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        </nav>
+        <span>© <span id="year">2026</span> Tracy Chun</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
