@@ -1,16 +1,99 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>[Project Three] — Tracy Chun</title>
-  <meta name="description" content="Case study: [Project Three] by Tracy Chun.">
+  <title>Newton's Cradle Simulation — Tracy Chun</title>
+  <meta name="description"
+    content="Case study: an interactive 3D Newton's Cradle physics simulation built in openFrameworks by Tracy Chun.">
   <link rel="preload" href="../fonts/knewave.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="../fonts/sorts-mill-goudy.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="../fonts/sniglet.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="project.css">
+  <style>
+    /* ---- Video-first layout for this page only ---- */
+    .cs-video {
+      display: block;
+      width: 100%;
+      max-height: 80vh;
+      background: #000;
+      border-radius: 16px;
+    }
+
+    .cs-video-caption {
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      text-align: center;
+    }
+
+    /* Small screens: 1 card per row */
+    .process-steps.text-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    /* Tablets: 2 per row */
+    @media (min-width: 700px) {
+      .process-steps.text-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1600px) {
+      .process-steps.text-steps {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+
+      .process-steps.text-steps .step {
+        padding: 1.1rem;
+      }
+
+      .process-steps.text-steps .step-text p {
+        font-size: 0.95rem;
+      }
+    }
+
+    .process-steps.text-steps .step {
+      display: block;
+      grid-template-columns: none;
+      padding: 1.5rem;
+      border: 2px solid currentColor;
+      border-radius: 16px;
+    }
+
+    .process-steps.text-steps .step-text {
+      max-width: none;
+    }
+
+    .jump-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      padding: 0.4rem 0.9rem;
+      font: inherit;
+      font-size: 0.9rem;
+      color: inherit;
+      background: transparent;
+      border: 2px solid currentColor;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .jump-btn:hover,
+    .jump-btn:focus-visible {
+      background: rgba(0, 0, 0, 0.06);
+    }
+  </style>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -38,44 +121,62 @@
     <!-- ============ INTRO ============ -->
     <section class="cs-hero container">
       <a href="../index.html#work" class="back-link">← All projects</a>
-      <span class="eyebrow eyebrow-brown">[Category, e.g. Web app]</span>
-      <h1>[Project Three]</h1>
-      <p class="lead">[One or two sentences: what this project is and why it matters.]</p>
+      <h1>Newton's Cradle Simulation</h1>
+      <p class="lead">An interactive 3D Newton's Cradle built in openFrameworks that lets users pull back the spheres,
+        let go, and watch energy and momentum travel through the cradle in real time. I built it to turn a physics
+        concept that's usually explained on paper into something people can play with.</p>
 
       <dl class="cs-meta">
-        <div><dt>My role</dt><dd>[e.g. Designer &amp; developer]</dd></div>
-        <div><dt>Timeline</dt><dd>[e.g. 6 weeks, 2026]</dd></div>
-        <div><dt>Tools</dt><dd>[Tool], [Tool], [Tool]</dd></div>
-        <div><dt>Team</dt><dd>[Solo / team of 4]</dd></div>
+        <div>
+          <dt>My role</dt>
+          <dd>Designer &amp; Developer</dd>
+        </div>
+        <div>
+          <dt>Timeline</dt>
+          <dd>4 weeks, Spring 2025</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>openFrameworks, C++, Visual Studio</dd>
+        </div>
+        <div>
+          <dt>Team</dt>
+          <dd>Solo</dd>
+        </div>
       </dl>
 
       <div class="btn-row">
-        <a href="https://example.com" class="btn btn-primary" target="_blank" rel="noopener">Live demo ↗</a>
-        <a href="https://github.com/yourusername/project-three" class="btn btn-outline" target="_blank" rel="noopener">View code ↗</a>
+        <a href="#demo" class="btn btn-primary">Watch demo ↓</a>
+        <a href="https://github.com/yourusername/project-three" class="btn btn-outline" target="_blank"
+          rel="noopener">View code ↗</a>
       </div>
     </section>
 
-    <!-- Cover image. Replace the div with:
-         <img class="shot" src="../images/project-three/cover.png" alt="[Project Three] final design"> -->
-    <figure class="cs-cover container">
-      <div class="shot placeholder sage">[Cover image — the finished project]</div>
+    <!-- ============ DEMO VIDEO ============-->
+    <figure id="demo" class="cs-cover container">
+      <video id="demo-video" class="cs-video" controls playsinline preload="metadata">
+        <source src="../images/project-three/FinalProjectDemo.mp4" type="video/mp4">
+        Your browser can't play this video. <a href="../images/project-three/demo.mp4">Download the demo</a> instead.
+      </video>
+      <figcaption class="cs-video-caption">Full demo of the simulation. Use the "Watch this part" buttons below to jump
+        to each feature.</figcaption>
     </figure>
 
     <!-- ============ PROBLEM ============ -->
     <section class="cs-section container">
       <h2>The problem</h2>
       <div class="cs-text">
-        <p>[What problem were you solving, and for whom? What made it interesting or hard?]</p>
-        <p>[Any constraints: time, tech, requirements, users.]</p>
+        <p>Energy conservation and Newton's third law are easy to state but hard to picture. I wanted to make an
+          interactable way to show this for those who don't have the cradle lying around. For my final project in IGME
+          309 at RIT, I set out to build a simulation that makes those ideas visible and hands-on.</p>
+        <p>The idea also had to meet a full technical spec. The physics needed a numerical integration method and linear
+          momentum transfer. The geometry had to show scaling, shearing, quaternion rotation with SLERP, and a Bézier
+          curve. It also had to be built using openFrameworks, compile and run in Visual Studio 2022 with nothing extra
+          to install.</p>
       </div>
     </section>
 
-    <!-- ============ PROCESS ============
-         Each <li class="step"> is one stage: a screenshot (or two) with a caption,
-         plus a short explanation. Copy or delete steps as needed.
-         To add a screenshot, replace a placeholder div with:
-         <img class="shot" src="../images/project-three/step-1.png" alt="Describe the screenshot">
-         Clicking a real screenshot opens it full-size. -->
+    <!-- ============ PROCESS ============  -->
     <section class="cs-process">
       <div class="container">
         <div>
@@ -83,56 +184,65 @@
           <h2>The process</h2>
         </div>
 
-        <ol class="process-steps">
+        <ol class="process-steps text-steps">
           <li class="step">
-            <figure>
-              <div class="shot placeholder peach">[Screenshot: research / planning]</div>
-              <figcaption>[Caption: what this screenshot shows.]</figcaption>
-            </figure>
             <div class="step-text">
               <span class="step-num">Step 01</span>
-              <h3>[Research &amp; planning]</h3>
-              <p>[What you learned, who you talked to, or how you scoped the work.]</p>
+              <h3>Planning the experience</h3>
+              <p>I started by deciding what someone should take away from the simulation: energy is conserved, and every
+                collision has an equal and opposite reaction. From there I planned three core features: a five-sphere
+                cradle users could view from any angle, a way to grab and lift the spheres, and a visual signal at the
+                moment of impact.</p>
             </div>
           </li>
 
           <li class="step">
-            <figure>
-              <div class="shot placeholder sage">[Screenshot: sketches / wireframes]</div>
-              <figcaption>[Caption: what this screenshot shows.]</figcaption>
-            </figure>
             <div class="step-text">
               <span class="step-num">Step 02</span>
-              <h3>[Sketches &amp; wireframes]</h3>
-              <p>[The ideas you explored and why you chose this direction.]</p>
+              <h3>Building the 3D scene</h3>
+              <p>I built the frame as a 3D box and hung five spheres from it, calculating each anchor point from the
+                ball count and spacing so the row always stays centered. Each string is drawn as a line from its anchor
+                to its sphere, and the white wireframe on a black background keeps the motion easy to read. An orbit
+                camera (ofEasyCam) lets users rotate and zoom around the cradle to watch it from any angle.</p>
+              <button class="jump-btn" type="button" data-time="18">▶ Watch the camera orbit</button>
             </div>
           </li>
 
           <li class="step">
-            <figure>
-              <!-- Two screenshots side by side, e.g. before / after -->
-              <div class="step-pair">
-                <div class="shot placeholder peach">[Screenshot: before]</div>
-                <div class="shot placeholder sage">[Screenshot: after]</div>
-              </div>
-              <figcaption>[Caption: what changed between these two versions.]</figcaption>
-            </figure>
             <div class="step-text">
               <span class="step-num">Step 03</span>
-              <h3>[Building it]</h3>
-              <p>[Key technical decisions, challenges you hit, and how you solved them.]</p>
+              <h3>Physics &amp; collisions</h3>
+              <p>Every frame, the simulation applies gravity and damping to each sphere's velocity, then updates its
+                position with Euler integration. To make each sphere swing like a pendulum, a constraint pulls it back
+                to the string's length and removes any velocity along the string, leaving only motion along the arc. For
+                collisions, I check the distance between neighboring spheres. When two overlap and are moving toward
+                each other, I apply a mass-weighted impulse along the line between their centers so momentum passes down
+                the row, then push them apart equally so they never sink into each other.</p>
+              <button class="jump-btn" type="button" data-time="22">▶ Watch a collision</button>
             </div>
           </li>
 
           <li class="step">
-            <figure>
-              <div class="shot placeholder peach">[Screenshot: testing / final polish]</div>
-              <figcaption>[Caption: what this screenshot shows.]</figcaption>
-            </figure>
             <div class="step-text">
               <span class="step-num">Step 04</span>
-              <h3>[Testing &amp; iterating]</h3>
-              <p>[What feedback you got and what you changed because of it.]</p>
+              <h3>Mouse interaction</h3>
+              <p>Users right-click a sphere and drag it to pull it back. To keep the sphere on its string while
+                dragging, I convert the mouse position into 3D space at the sphere's depth, clamp the horizontal offset
+                to the string length, and solve for the height with the Pythagorean theorem, so the sphere always traces
+                the correct arc. The selected sphere turns red, and the camera locks during the drag so the view doesn't
+                spin. On release, the sphere gets a push along the arc and swings back into the row.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step-text">
+              <span class="step-num">Step 05</span>
+              <h3>Controls &amp; polish</h3>
+              <p>I added an on-screen GUI panel with sliders for gravity and damping so users can experiment and see how
+                each one changes the swing, and an R key that resets the spheres, colors and sliders to their defaults.
+                [Add anything else you tuned or added, e.g. an intro screen, pause, quit, credits, or collision sounds.]
+              </p>
+              <button class="jump-btn" type="button" data-time="29">▶ Watch the sliders in action</button>
             </div>
           </li>
         </ol>
@@ -143,10 +253,14 @@
     <section class="cs-section container">
       <h2>The result</h2>
       <div class="cs-text">
-        <p>[What you shipped and how it turned out.]</p>
+        <p>The final simulation is a fully interactive 3D Newton's Cradle that runs in real time. Users can rotate
+          around it, pull back a sphere, watch momentum move through the row, and change gravity and damping live to see
+          how the motion responds.</p>
         <ul>
-          <li>[Outcome or result you can point to]</li>
-          <li>[Outcome or result you can point to]</li>
+          <li>Simulated pendulum motion in C++ with Euler integration and a string-length constraint.</li>
+          <li>Transferred momentum between spheres with mass-weighted impulse collisions and overlap correction.</li>
+          <li>Built 3D mouse dragging that keeps each sphere on its arc, plus live GUI controls and a keyboard reset.
+          </li>
         </ul>
       </div>
     </section>
@@ -154,7 +268,11 @@
     <section class="cs-section container">
       <h2>What I learned</h2>
       <div class="cs-text">
-        <p>[A skill you grew, something you'd do differently, or what's next for the project.]</p>
+        <p>My biggest takeaway was that realistic motion comes as much from constraints as from forces. Gravity alone
+          just pulls a sphere straight down; the string constraint and collision impulses are what make it behave like a
+          real cradle. I also got comfortable moving between screen space and 3D world space, which is what made
+          dragging feel natural. Next, I'd want the simulation to be more interactive and let users change the number of
+          spheres or show the energy values on screen.</p>
       </div>
     </section>
 
@@ -183,5 +301,22 @@
 
   <script src="../script.js"></script>
   <script src="project.js"></script>
+  <script>
+    // "Watch this part" buttons: scroll up to the video and play from that timestamp.
+    (function () {
+      var video = document.getElementById('demo-video');
+      if (!video) return;
+      document.querySelectorAll('.jump-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var t = parseFloat(btn.getAttribute('data-time')) || 0;
+          video.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          video.currentTime = t;
+          var p = video.play();
+          if (p && p.catch) p.catch(function () { });
+        });
+      });
+    })();
+  </script>
 </body>
+
 </html>

@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>[Project One] — Tracy Chun</title>
+  <title>Digital Deathmatch — Tracy Chun</title>
   <meta name="description" content="Case study: [Project One] by Tracy Chun.">
   <link rel="preload" href="../fonts/knewave.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="../fonts/sorts-mill-goudy.woff" as="font" type="font/woff" crossorigin>
@@ -11,6 +12,7 @@
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="project.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -38,104 +40,57 @@
     <!-- ============ INTRO ============ -->
     <section class="cs-hero container">
       <a href="../index.html#work" class="back-link">← All projects</a>
-      <span class="eyebrow eyebrow-brown">[Category, e.g. Web app]</span>
-      <h1>[Project One]</h1>
-      <p class="lead">[One or two sentences: what this project is and why it matters.]</p>
-
+      <h1>Digital Deathmatch (aka) RoboCage</h1>
+      <p class="lead">Robo Cage started as a summer co-op project with a team of three: Lorenzo, Yang and me. We later
+        continued it in one of our Game Design and Development classes focused on passion projects, where we were lucky
+        to have another 3D artist, Chris, join the team. The name started out as RoboCage but we later changed it to be
+        Digital Deathmatch.</p>
       <dl class="cs-meta">
-        <div><dt>My role</dt><dd>[e.g. Designer &amp; developer]</dd></div>
-        <div><dt>Timeline</dt><dd>[e.g. 6 weeks, 2026]</dd></div>
-        <div><dt>Tools</dt><dd>[Tool], [Tool], [Tool]</dd></div>
-        <div><dt>Team</dt><dd>[Solo / team of 4]</dd></div>
+        <div>
+          <dt>My role</dt>
+          <dd>UI/UX Designer &amp; 3D Artist</dd>
+        </div>
+        <div>
+          <dt>Timeline</dt>
+          <dd>June 2025 – Present</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>Unity (ECS/DOTS), C#, Maya</dd>
+        </div>
+        <div>
+          <dt>Team</dt>
+          <dd>Team of 4 (Hybrid)</dd>
+        </div>
       </dl>
 
       <div class="btn-row">
-        <a href="https://example.com" class="btn btn-primary" target="_blank" rel="noopener">Live demo ↗</a>
-        <a href="https://github.com/yourusername/project-one" class="btn btn-outline" target="_blank" rel="noopener">View code ↗</a>
+        <!-- <a href="https://example.com" class="btn btn-primary" target="_blank" rel="noopener">Live demo ↗</a>
+        <a href="https://github.com/yourusername/project-one" class="btn btn-outline" target="_blank"
+          rel="noopener">View code ↗</a> -->
       </div>
     </section>
 
-    <!-- Cover image. Replace the div with:
-         <img class="shot" src="../images/project-one/cover.png" alt="[Project One] final design"> -->
     <figure class="cs-cover container">
-      <div class="shot placeholder sage">[Cover image — the finished project]</div>
+      <img class="shot" src="/images/project-one/RoboCageCover.png" alt="RoboCage Cover Photo">
     </figure>
 
     <!-- ============ PROBLEM ============ -->
     <section class="cs-section container">
       <h2>The problem</h2>
       <div class="cs-text">
-        <p>[What problem were you solving, and for whom? What made it interesting or hard?]</p>
-        <p>[Any constraints: time, tech, requirements, users.]</p>
+        <p>This was the first time any of us had worked on a live, server-based multiplayer game. Learning to work
+          within Unity's ECS architecture was a challenge, and we were a bit ambitious about how much we could
+          accomplish in such a short time.</p>
+        <p>The goal was for the game to hold at least 6 players at a time. </p>
       </div>
     </section>
 
-    <!-- ============ PROCESS ============
-         Each <li class="step"> is one stage: a screenshot (or two) with a caption,
-         plus a short explanation. Copy or delete steps as needed.
-         To add a screenshot, replace a placeholder div with:
-         <img class="shot" src="../images/project-one/step-1.png" alt="Describe the screenshot">
-         Clicking a real screenshot opens it full-size. -->
     <section class="cs-process">
-      <div class="container">
-        <div>
-          <span class="eyebrow">How I got there</span>
-          <h2>The process</h2>
-        </div>
-
-        <ol class="process-steps">
-          <li class="step">
-            <figure>
-              <div class="shot placeholder peach">[Screenshot: research / planning]</div>
-              <figcaption>[Caption: what this screenshot shows.]</figcaption>
-            </figure>
-            <div class="step-text">
-              <span class="step-num">Step 01</span>
-              <h3>[Research &amp; planning]</h3>
-              <p>[What you learned, who you talked to, or how you scoped the work.]</p>
-            </div>
-          </li>
-
-          <li class="step">
-            <figure>
-              <div class="shot placeholder sage">[Screenshot: sketches / wireframes]</div>
-              <figcaption>[Caption: what this screenshot shows.]</figcaption>
-            </figure>
-            <div class="step-text">
-              <span class="step-num">Step 02</span>
-              <h3>[Sketches &amp; wireframes]</h3>
-              <p>[The ideas you explored and why you chose this direction.]</p>
-            </div>
-          </li>
-
-          <li class="step">
-            <figure>
-              <!-- Two screenshots side by side, e.g. before / after -->
-              <div class="step-pair">
-                <div class="shot placeholder peach">[Screenshot: before]</div>
-                <div class="shot placeholder sage">[Screenshot: after]</div>
-              </div>
-              <figcaption>[Caption: what changed between these two versions.]</figcaption>
-            </figure>
-            <div class="step-text">
-              <span class="step-num">Step 03</span>
-              <h3>[Building it]</h3>
-              <p>[Key technical decisions, challenges you hit, and how you solved them.]</p>
-            </div>
-          </li>
-
-          <li class="step">
-            <figure>
-              <div class="shot placeholder peach">[Screenshot: testing / final polish]</div>
-              <figcaption>[Caption: what this screenshot shows.]</figcaption>
-            </figure>
-            <div class="step-text">
-              <span class="step-num">Step 04</span>
-              <h3>[Testing &amp; iterating]</h3>
-              <p>[What feedback you got and what you changed because of it.]</p>
-            </div>
-          </li>
-        </ol>
+      <div class="slides-embed">
+        <iframe
+          src="https://docs.google.com/presentation/d/e/2PACX-1vQmwmbu1jBrTkYDIrFTT3A6GfHaLyI3vzROXVCdRMWq2rZDqHxN5Og_TouFlgv-0leozzgu1Mzb32WB/pubembed?start=false&loop=true&delayms=3000"
+          frameborder="0" allowfullscreen title="Robo Cage presentation"></iframe>
       </div>
     </section>
 
@@ -143,10 +98,16 @@
     <section class="cs-section container">
       <h2>The result</h2>
       <div class="cs-text">
-        <p>[What you shipped and how it turned out.]</p>
+        <p>Robo Cage is still in the works but players can join a lobby, connect with friends and battle in the arena.
+          Our team is continuing to develop it, but the core experience is in place, and seeing our separate pieces of
+          code, art and UI come together into one game was one of the most rewarding parts of the project.</p>
         <ul>
-          <li>[Outcome or result you can point to]</li>
-          <li>[Outcome or result you can point to]</li>
+          <li>Designed and implemented the game's full interactable UI, connected to live gameplay data so players
+            always know their health, ammo and match status at a glance.</li>
+          <li>Modeled the game's weapons and arena environment assets, shaping the look and feel of the map.</li>
+          <li>Presented our progress to a class of 30 each sprint and used their feedback to refine the game.</li>
+          <li>Built a working online multiplayer foundation as a team, using server-authoritative networking,
+            client-side prediction, and Unity Lobby and Relay.</li>
         </ul>
       </div>
     </section>
@@ -154,7 +115,12 @@
     <section class="cs-section container">
       <h2>What I learned</h2>
       <div class="cs-text">
-        <p>[A skill you grew, something you'd do differently, or what's next for the project.]</p>
+        <p>I wasn't very confident in my UI design skills going into this project, and it really pushed me to grow. It
+          also made me a faster 3D modeler and reminded me just how time consuming the modeling process can be. The
+          creative freedom I had let me experiment with the map's aesthetics and design, and it was amazing to watch all
+          the pieces come together. Looking ahead, I want our team to be more organized. Coordinating four people's
+          schedules made it hard to meet up and break down break down everything we needed to tackle. Though it makes
+          sense as most of us were swamped with different classes throughout the whole semester.</p>
       </div>
     </section>
 
@@ -184,4 +150,5 @@
   <script src="../script.js"></script>
   <script src="project.js"></script>
 </body>
+
 </html>

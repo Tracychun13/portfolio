@@ -183,3 +183,18 @@ img.shot { cursor: zoom-in; }
   font-size: 24px;
   cursor: pointer;
 }
+.slides-embed {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 2rem auto;
+  aspect-ratio: 16 / 9;
+}
+.slides-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
